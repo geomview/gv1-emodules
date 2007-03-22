@@ -6,7 +6,6 @@ AC_CANONICAL_TARGET([])
 AM_INIT_AUTOMAKE([dist-bzip2 foreign 1.9])
 AM_MAINTAINER_MODE
 AC_CONFIG_HEADER([config.h])
-AC_PREFIX_DEFAULT(/usr/local/Geomview)
 GV_INIT_GEOMVIEW(=,1,>=,8)
 AC_PROG_INSTALL
 GV_INIT_GEOMVIEW
@@ -17,6 +16,14 @@ AC_CONFIG_SRCDIR([src/NDview/ndview.c])
 #
 # emodule specific checks.
 #
+
+#
+# Store X library link line in XLIBS
+#
+AC_PATH_XTRA
+XLIBS="$X_LIBS $X_PRE_LIBS -lXt -lXext -lX11 $X_EXTRA_LIBS"
+AC_SUBST(XLIBS)
+AC_CACHE_VAL(ac_cv_XLIBS,[ac_cv_XLIBS="XLIBS='$XLIBS'"])
 
 # Check for Tcl/Tk with new CHECK_PACKAGE macro:
 
