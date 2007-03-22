@@ -1,4 +1,4 @@
-README for the xforms based example emodule for Geomview
+README for the xforms based emodules for Geomview
 
 Contents
 --------
@@ -11,21 +11,21 @@ Contents
 
 Description
 -----------
-This is the `example' emodule defined in the Geomview
-manual.`emodules' are kind of plugins which extend the functionality
-of Geomview (an interactive 3d viewing program). Geomview is available
-separately from Sourceforge. Please see www.geomview.org for more
-information.
+This package contains XForms based emodules of the original Geomview
+distribution. `emodules' are kind of plugins which extend the
+functionality of Geomview (an interactive 3d viewing program). The
+modules are based on XForms and can be used as a tool-kit for
+displaying projections of higher dimensional objects. Geomview is
+available separately from Sourceforge. Please see www.geomview.org for
+more information.
 
-The example emodule demonstrates how to write an xforms-based
-extension module for Geomview. The source code is contained in
+The source code is contained in the directories
 
-./src/
+./src/[module-name]/
 
 Required Packages
 -----------------
-You need the xforms library to compile the example emodule. xforms is
-available from
+You need the XForms library to emodules. XForms is available from
 
 http://www.nongnu.org/xforms/
 
@@ -43,12 +43,12 @@ Installation
 
 Quick
 ~~~~~
-You have to install the xforms library and Geomview first; afterwards
-you can install this package like you would install any other GNU
-autoconf based package. See the file ./INSTALL for generic
+You have to install the XForms library and Geomview first;
+afterwards you can install this package like you would install any
+other GNU autoconf based package. See the file ./INSTALL for generic
 installation instructions.
 
-Quick install instructions: if Geomview and the xforms library were
+Quick install instructions: if Geomview and the XForms library were
 installed in their default locations, then all you need to do is
 
 ./configure --prefix=PREFIX && make install
@@ -60,33 +60,37 @@ specified).
 
 Local Installation
 ~~~~~~~~~~~~~~~~~~
-To install the example emodule locally, run configure with the
+To install the emodules locally, run configure with the
 `--enable-local-emodule' switch:
 
 ./configure --prefix=PREFIX --enable-local-emodule && make install
 
 This still will install the binary under `PREFIX/libexec/geomview/',
-but writes the emodule definition into the file
+but writes the emodule definition into the files
 
-~/.geomview-example
+~/.geomview-transformer
+~/.geomview-...
 
 were Geomview will find it. So, for a local installation you would --
 perhaps -- do the following:
 
 ./configure --prefix=${HOME}/software --enable-local-emodule && make install
 
-This would produce the two files
+This would produce pairs of files
 
-${HOME}/software/libexec/geomview/example
-${HOME}/.geomview-example
+${HOME}/software/libexec/geomview/transformer
+${HOME}/.geomview-transformer
+${HOME}/software/libexec/geomview/...
+${HOME}/.geomview-...
+...
 
-`.geomview-example' will contain the full path to the `example' binary
-in this case so that nothing more should be needed to call the example
-emodule from within Geomview.
+The emodule definition files (`.geomview-...') will contain the full
+path to the real executables in this case so that nothing more should
+be needed to call the emodules from within Geomview.
 
 Global Installation
 ~~~~~~~~~~~~~~~~~~~
-Just configure Geomview and gvemod-example with the same `--prefix'
+Just configure Geomview and gvemodules-tcltk with the same `--prefix'
 option; e.g. `--prefix=/usr'. This should work.
 
 If you run configure with the switch `--enable-geomview-query' then
@@ -97,22 +101,24 @@ Geomview is installed in a strange place.
 
 Consider you had installed Geomview locally in your home-directory
 below `${HOME}/Geomview' (by configuring the Geomview package with
-`--prefix=${HOME}/Geomview'), and the xforms library below the prefix
-`${HOME}/software/', then you could run configure like follows:
+`--prefix=${HOME}/Geomview'), and the XForms library below the
+prefix `${HOME}/software/', then you could run configure like follows:
 
 ./configure --prefix=${HOME}/software --enable-geomview-query && make install
 
-This would result in auto-detection of the xforms library and produce
-the two files
+This would result in auto-detection of the XForms library and
+produce pairs of files
 
-${HOME}/Geomview/libexec/geomview/example
-${HOME}/Geomview/libexec/geomview/.geomview-example
+${HOME}/Geomview/libexec/geomview/transformer
+${HOME}/Geomview/libexec/geomview/.geomview-transformer
+${HOME}/Geomview/libexec/geomview/...
+${HOME}/Geomview/libexec/geomview/.geomview-...
+...
 
 and again, this should result in a working configuration.
 
 Special Switches
 ~~~~~~~~~~~~~~~~
-
 The configure script features some command line switches to fine-tune
 the locations where it searches for needed packages (i.e. Geomview,
 XForms, Xpm). Please use `configure --help' to get help about these.

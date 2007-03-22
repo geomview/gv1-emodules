@@ -26,7 +26,7 @@ The source code is contained in the directories
 
 Required Packages
 -----------------
-You need the Tcl and Tk libraries to comile the modules.  Tcl and Tk
+You need the Tcl and Tk libraries to comile the modules. Tcl and Tk
 are available from
 
 http://www.tcl.tk/software/
@@ -70,7 +70,7 @@ To install the emodules locally, run configure with the
 This still will install the binary under `PREFIX/libexec/geomview/',
 but writes the emodule definition into the files
 
-~/.geomview-ndiew
+~/.geomview-crayola
 ~/.geomview-...
 
 were Geomview will find it. So, for a local installation you would --
@@ -121,10 +121,9 @@ and again, this should result in a working configuration.
 
 Special Switches
 ~~~~~~~~~~~~~~~~
-
 The configure script features some command line switches to fine-tune
 the locations where it searches for needed packages (i.e. Geomview,
-XForms, Xpm). Please use `configure --help' to get help about these.
+Tcl, Tk, ...). Please use `configure --help' to get help about these.
 
 HISTORY
 -------

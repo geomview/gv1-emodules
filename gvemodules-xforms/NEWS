@@ -1,8 +1,7 @@
 0.1 March, 2007
 
   The xforms and Tcl/Tk emodules have been moved to separate packages.
-  This is the "example" xforms based emodules desscribed in the Geomview
-  manual
+  This package contains the XForms based emodules of the original
+  Geomview distribution.
 
   cH <Claus.Heine@Mathematik.Uni-Freiburg.DE>
-
