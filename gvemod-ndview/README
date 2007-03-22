@@ -11,18 +11,21 @@ Contents
 
 Description
 -----------
-
 This package contains the NDview emodule and the emodules of the
 `src/bin/ndutils' directory of the original Geomview distribution.
-The modules are based on Tcl/Tk and can be used as a tool-kit for
-displaying projections of higher dimensional objects. Geomview is
-available separately from Sourceforge. Please see www.geomview.org for
-more information.
+`emodules' are kind of plugins which extend the functionality of
+Geomview (an interactive 3d viewing program). The modules are based on
+Tcl/Tk and can be used as a tool-kit for displaying projections of
+higher dimensional objects. Geomview is available separately from
+Sourceforge. Please see www.geomview.org for more information.
 
 The source code is contained in the directories
 
 ./src/NDview/
 ./src/ndutils/
+
+Further documentation is available through `help' buttons while
+running the emodules from within Geomview.
 
 Required Packages
 -----------------
@@ -113,6 +116,8 @@ produce pairs of files
 
 ${HOME}/Geomview/libexec/geomview/ndview
 ${HOME}/Geomview/libexec/geomview/.geomview-ndview
+${HOME}/Geomview/libexec/geomview/...
+${HOME}/Geomview/libexec/geomview/.geomview-...
 ...
 
 and again, this should result in a working configuration.

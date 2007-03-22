@@ -11,14 +11,16 @@ Contents
 
 Description
 -----------
-This is the "example" emodule defined in the Geomview manual. Geomview
-is available separately from Sourceforge. Please see www.geomview.org
-for more information.
+This is the `example' emodule defined in the Geomview
+manual.`emodules' are kind of plugins which extend the functionality
+of Geomview (an interactive 3d viewing program). Geomview is available
+separately from Sourceforge. Please see www.geomview.org for more
+information.
 
 The example emodule demonstrates how to write an xforms-based
 extension module for Geomview. The source code is contained in
 
-./src/example/
+./src/
 
 Required Packages
 -----------------
