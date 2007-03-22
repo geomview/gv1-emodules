@@ -1,1 +1,5 @@
-SUBDIRS = crayola labeler
+SUBDIRS = labeler
+if TCLFILEHANDLER
+SUBDIRS += crayola
+endif
+
