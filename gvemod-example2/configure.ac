@@ -8,7 +8,7 @@ AC_CONFIG_HEADER([config.h])
 AC_PREFIX_DEFAULT(/usr/local/Geomview)
 GV_INIT_GEOMVIEW(=,1,>=,8)
 
-AC_CONFIG_SRCDIR([src/example/main.c])
+AC_CONFIG_SRCDIR([src/main.c])
 
 AC_PROG_INSTALL
 AC_PROG_CC
@@ -33,6 +33,4 @@ GEOMVIEW_CHECK_PACKAGE(xforms, forms, ${x_libraries}, ${XLIBS} ${XPM_LIB} -lm, f
 
 GEOMVIEW_RESULT
 
-AC_OUTPUT(Makefile
-          src/Makefile
-          src/example/Makefile)
+AC_OUTPUT(Makefile src/Makefile)
