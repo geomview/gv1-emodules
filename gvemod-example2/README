@@ -37,6 +37,7 @@ Installation
   Quick
   Local Installation
   Global Installation
+  Special Switches
 
 Quick
 ~~~~~
@@ -106,6 +107,13 @@ ${HOME}/Geomview/libexec/geomview/example
 ${HOME}/Geomview/libexec/geomview/.geomview-example
 
 and again, this should result in a working configuration.
+
+Special Switches
+~~~~~~~~~~~~~~~~
+
+The configure script features some command line switches to fine-tune
+the locations where it searches for needed packages (i.e. Geomview,
+XForms, Xpm). Please use `configure --help' to get help about these.
 
 HISTORY
 -------
