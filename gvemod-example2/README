@@ -1,4 +1,4 @@
-README for the xforms based example emodule for Geomview
+README for the XForms based example emodule for Geomview
 
 Contents
 --------
@@ -17,14 +17,14 @@ of Geomview (an interactive 3d viewing program). Geomview is available
 separately from Sourceforge. Please see www.geomview.org for more
 information.
 
-The example emodule demonstrates how to write an xforms-based
+The example emodule demonstrates how to write an XForms-based
 extension module for Geomview. The source code is contained in
 
 ./src/
 
 Required Packages
 -----------------
-You need the xforms library to compile the example emodule. xforms is
+You need the XForms library to compile the example emodule. XForms is
 available from
 
 http://www.nongnu.org/xforms/
@@ -43,12 +43,12 @@ Installation
 
 Quick
 ~~~~~
-You have to install the xforms library and Geomview first; afterwards
+You have to install the XForms library and Geomview first; afterwards
 you can install this package like you would install any other GNU
 autoconf based package. See the file ./INSTALL for generic
 installation instructions.
 
-Quick install instructions: if Geomview and the xforms library were
+Quick install instructions: if Geomview and the XForms library were
 installed in their default locations, then all you need to do is
 
 ./configure --prefix=PREFIX && make install
@@ -97,12 +97,12 @@ Geomview is installed in a strange place.
 
 Consider you had installed Geomview locally in your home-directory
 below `${HOME}/Geomview' (by configuring the Geomview package with
-`--prefix=${HOME}/Geomview'), and the xforms library below the prefix
+`--prefix=${HOME}/Geomview'), and the XForms library below the prefix
 `${HOME}/software/', then you could run configure like follows:
 
 ./configure --prefix=${HOME}/software --enable-geomview-query && make install
 
-This would result in auto-detection of the xforms library and produce
+This would result in auto-detection of the XForms library and produce
 the two files
 
 ${HOME}/Geomview/libexec/geomview/example
