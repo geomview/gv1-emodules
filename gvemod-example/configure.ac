@@ -1,5 +1,5 @@
 AC_PREREQ(2.59)
-AC_INIT(gvemodules-xforms, [0.1], Claus-Justus Heine <Claus.Heine@Mathematik.Uni-Freiburg.DE>)
+AC_INIT(gvemod-example, [0.1], Claus-Justus Heine <Claus.Heine@Mathematik.Uni-Freiburg.DE>)
 AC_MSG_RESULT([configuring $PACKAGE_NAME $PACKAGE_VERSION])
 AC_CANONICAL_TARGET([])
 AM_INIT_AUTOMAKE([dist-bzip2 1.9 foreign])
@@ -29,25 +29,8 @@ AC_CACHE_VAL(ac_cv_XLIBS,[ac_cv_XLIBS="XLIBS='$XLIBS'"])
 GEOMVIEW_CHECK_PACKAGE(Xpm, Xpm, ${x_libraries}, ${XLIBS},,,,optional,enabled)
 GEOMVIEW_CHECK_PACKAGE(xforms, forms, ${x_libraries}, ${XLIBS} ${XPM_LIB} -lm, forms.h,,,optional,enabled)
 
-# The stereo module needs to fiddle with monitor modes.
-# Currently, this only works on IRIX using an external command.
-#
-AC_PATH_PROG([SETMON_PATH],[setmon],,[$PATH:/usr/gfx])
-if test -n "$SETMON_PATH"; then
-  AC_DEFINE_UNQUOTED([SETMON_PATH], "$SETMON_PATH", [Path to setmon program])
-fi
-
 ########################################################################
 
 AC_OUTPUT(Makefile
           src/Makefile
-          src/cplxview/Makefile
-          src/example/Makefile
-          src/flythrough/Makefile
-          src/ginsu/Makefile
-          src/graffiti/Makefile
-          src/hinge/Makefile
-          src/stereo/Makefile
-          src/sweep/Makefile
-          src/tackdown/Makefile
-          src/transformer/Makefile)
+          src/example/Makefile)
