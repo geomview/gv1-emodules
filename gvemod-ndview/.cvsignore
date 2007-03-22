@@ -1,3 +1,4 @@
+INSTALL
 Makefile
 Makefile.in
 aclocal.m4
@@ -10,9 +11,9 @@ config.status
 config.sub
 configure
 depcomp
-gvemod-ndview-0.1
-gvemod-ndview-0.1.tar.bz2
-gvemod-ndview-0.1.tar.gz
+gvemod-ndview-0*
 install-sh
+libtool
+ltmain.sh
 missing
 stamp-h1

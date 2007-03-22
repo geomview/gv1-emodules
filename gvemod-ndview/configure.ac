@@ -3,7 +3,7 @@ AC_INIT(gvemod-ndview,
         [0.1], Claus-Justus Heine <Claus.Heine@Mathematik.Uni-Freiburg.DE>)
 AC_MSG_RESULT([configuring $PACKAGE_NAME $PACKAGE_VERSION])
 AC_CANONICAL_TARGET([])
-AM_INIT_AUTOMAKE([dist-bzip2 foreign 1.9])
+AM_INIT_AUTOMAKE([dist-bzip2 1.9])
 AM_MAINTAINER_MODE
 AC_CONFIG_HEADER([config.h])
 GV_INIT_GEOMVIEW(=,1,>=,8)

@@ -1,0 +1,307 @@
+2007-03-22  Claus-Justus Heine  <Claus.Heine@Mathematik.Uni-Freiburg.DE>
+
+	* configure.ac: Use standard installation prefix.
+
+	* m4/geomview.m4:
+	Small fixes (check for -lm, math.h, other minor stuff).
+
+	* m4/geomview.m4, m4/set-prefix.m4: Some fine-tuning
+
+	* m4/geomview.m4: Feature local installation.
+
+	* m4/check-package.m4, m4/geomview.m4: Autoconf madness.
+
+	* configure.ac: Check for Tcl_CreateFileHandler.
+
+2007-03-21  Claus-Justus Heine  <Claus.Heine@Mathematik.Uni-Freiburg.DE>
+
+	* .cvsignore, src/NDview/Makefile.am, src/ndutils/Makefile.am:
+	Emodule strip-off should be finished now.
+
+	* src/ndutils/GeomExtentDirection.c: Cosmetics.
+
+	* src/.cvsignore: Initial revision.
+
+	* src/Makefile.am: *** empty log message ***
+
+	* Makefile.am, configure.ac, .cvsignore: Initial revision.
+
+	* m4/geomview.m4: Use GeomGet()/GeomSet() instead of accessing private
+	data-structures. Make sure the damn stuff compiles as external module,
+	outside the Geomview source-tree.
+
+	* m4/geomview.m4: Fix unbalanced if-fi
+
+	* m4/geomview.m4: Build system fixes.
+
+	* m4/geomview.m4: Optionally check for the version of Geomview.
+
+	* src/NDview/Makefile.am: Cosmetics.
+
+	* m4/withtool.m4: CHECK_PROG/PATH_PROG duality.
+
+	* m4/withtool.m4: Absolute/relative path-name support.
+
+2007-03-20  Claus-Justus Heine  <Claus.Heine@Mathematik.Uni-Freiburg.DE>
+
+	* m4/withtool.m4, m4/geomview.m4: Initial revision.
+
+	* src/NDview/Makefile.am, src/ndutils/Makefile.am:
+	Adjust environment variables in preparation for Orrery and maniview
+	autoconf revision.
+
+2007-02-15  Claus-Justus Heine  <Claus.Heine@Mathematik.Uni-Freiburg.DE>
+
+	* src/NDview/NDdemo, src/NDview/NDview:
+	Remove invalid script interpreter
+
+2007-02-10  Claus-Justus Heine  <Claus.Heine@Mathematik.Uni-Freiburg.DE>
+
+	* m4/lf_local.m4:
+	Hopefully LF_LINK_HEADERS() works _NOW_ for in-path and VPATH builds.
+
+	* m4/lf_local.m4: Undo a bug introduced previously by myself.
+
+2007-02-09  Claus-Justus Heine  <Claus.Heine@Mathematik.Uni-Freiburg.DE>
+
+	* src/ndutils/GeomtoNoff.c, src/ndutils/WithColor.c, src/ndutils/clipoogl.c:
+	Move some more flag values to geom->geomflags, kind of unification.
+
+2006-12-11  Claus-Justus Heine  <Claus.Heine@Mathematik.Uni-Freiburg.DE>
+
+	* src/ndutils/clipoogl.c:
+	BSP tree implementation for correct display of translucent objects,
+	needs still some polishing and extension to compound objects; only
+	off/mesh/noff/ndmesh/quad up to now, but no inst and list support
+	(will come).
+
+2006-11-14  Claus-Justus Heine  <Claus.Heine@Mathematik.Uni-Freiburg.DE>
+
+	* src/ndutils/TransformGeom.c, src/ndutils/WithColor.c:
+	Fix SKEL 3d snapshot.
+
+2006-11-03  Claus-Justus Heine  <Claus.Heine@Mathematik.Uni-Freiburg.DE>
+
+	* src/ndutils/ColorPoint.c, src/ndutils/TransformGeom.c, src/ndutils/WithColor.c:
+	Remove some variable decl which are no longer needed.
+
+2006-10-30  Claus-Justus Heine  <Claus.Heine@Mathematik.Uni-Freiburg.DE>
+
+	* src/ndutils/Clip.h, src/ndutils/clip.c, src/ndutils/clipoogl.c:
+	Use an obstack to clean up after ND clipping.
+
+2006-10-29  Claus-Justus Heine  <Claus.Heine@Mathematik.Uni-Freiburg.DE>
+
+	* src/NDview/NDdemo, src/NDview/NDview:
+	The "origin/bbox-center" keyword to transform and transform-incr was a
+	bad idea. There is still a new button in the Tools-menu which
+	translates the CENTER object to the currently selected geom's bounding box.
+
+2006-10-26  Claus-Justus Heine  <Claus.Heine@Mathematik.Uni-Freiburg.DE>
+
+	* src/ndutils/GeomtoNoff.h, src/ndutils/LoadMap.c, src/ndutils/LoadMap.h, src/ndutils/MakeGoodTransforms.c, src/ndutils/MakeGoodTransforms.h, src/ndutils/Makefile.am, src/ndutils/Random.c, src/ndutils/TransformGeom.c, src/ndutils/TransformGeom.h, src/ndutils/WithColor.c, src/ndutils/WithColor.h, src/ndutils/clip.c, src/ndutils/clipoogl.c, src/ndutils/init.c, src/ndutils/init.h, src/ndutils/slicer.c, src/ndutils/slicer.h, src/ndutils/snapshot.c, src/ndutils/snapshot.h, src/ndutils/testwish.c, src/ndutils/wrappers.c, src/ndutils/wrappers.h, src/NDview/NDdemo, src/NDview/NDview, src/NDview/ndview.c, src/ndutils/BasicFns.c, src/ndutils/BasicFns.h, src/ndutils/Clip.h, src/ndutils/ColorMapDefs.h, src/ndutils/ColorPoint.c, src/ndutils/ColorPoint.h, src/ndutils/GeExDir.c, src/ndutils/GeExDir.h, src/ndutils/GeomExtentDirection.c, src/ndutils/GeomExtentDirection.h, src/ndutils/GeomtoNoff.c:
+	Fixed a BUNCH of memory leaks and other errors. But the main-work was
+	to move thehomogeneous component to index 0. And the most important
+	change was that each camera of an ND-cluster now has additionally its
+	own 3d transform.
+
+2006-10-19  Claus-Justus Heine  <Claus.Heine@Mathematik.Uni-Freiburg.DE>
+
+	* src/NDview/ndview.c, src/ndutils/ColorPoint.c, src/ndutils/GeExDir.c, src/ndutils/slicer.c, src/ndutils/snapshot.c:
+	Prepare for binary ntransform format.
+
+2006-10-16  Claus-Justus Heine  <Claus.Heine@Mathematik.Uni-Freiburg.DE>
+
+	* src/ndutils/TransformGeom.c, src/ndutils/WithColor.c:
+	Some cleanup w.r.t. to ND drawing of 3d objects.
+
+2006-10-15  Claus-Justus Heine  <Claus.Heine@Mathematik.Uni-Freiburg.DE>
+
+	* src/NDview/.cvsignore, src/ndutils/.cvsignore:
+	Ignore some files generated during compilation.
+
+2006-10-13  Claus-Justus Heine  <Claus.Heine@Mathematik.Uni-Freiburg.DE>
+
+	* src/ndutils/GeomExtentDirection.c, src/ndutils/GeomtoNoff.c, src/ndutils/TransformGeom.c, src/ndutils/WithColor.c:
+	Quite a lot of ND drawing changes:
+
+	look-encompass/-recenter etc. should work now; every camera of an
+	ND-cluster now additionally has a 3d transform attached which acts on
+	the 3d sub-space it is looking at; this is used by look-encompass. The
+	prevous ND paradigm focal-len == translation in z direction was just
+	an ugly hack.
+
+	Motions are not applied to the 3d transforms while in Nd mode.
+
+	Mouse-scaling now works while in Nd-mode, however, it is no longer
+	treated as a motion: mouse initiated scaling in Nd is never
+	incremental; changing this would require quite some more changes.
+
+	Picking still does not work in Nd.
+
+	Nd drawing honours the 3d transformations set by the xform/xform-set
+	commands. But the result may look very funny.
+
+	* src/NDview/NDview:
+	Disable normalization, do not disable bboxes, they work in Nd now.
+
+2006-10-06  Claus-Justus Heine  <Claus.Heine@Mathematik.Uni-Freiburg.DE>
+
+	* m4/lf_local.m4:
+	Prefix fix for header linking was wrong. Correct that.
+
+	* src/NDview/Makefile.am:
+	Use $(realpath ..) for the in-tree emodule definitions.
+
+	* m4/lf_local.m4:
+	Take relative/non relative source locations into account.
+
+2006-10-04  Claus-Justus Heine  <Claus.Heine@Mathematik.Uni-Freiburg.DE>
+
+	* src/NDview/ndview.c, src/ndutils/slicer.c:
+	Preparation for some ND-view changes; I plan support for working
+	"look" and "positioning" commands. Needed quite some changes. I tagged
+	everything with the GEOMVIEW_PRE_NDVIEW_CHANGE tag; so we can revert
+	if it does not work out.
+
+2006-08-07  Claus-Justus Heine  <Claus.Heine@Mathematik.Uni-Freiburg.DE>
+
+	* src/NDview/.cvsignore, src/ndutils/.cvsignore: CVS ignore stuff.
+
+	* src/NDview/.cvsignore, src/ndutils/.cvsignore:
+	Ignore .deps directory.
+
+2006-08-01  Claus-Justus Heine  <Claus.Heine@Mathematik.Uni-Freiburg.DE>
+
+	* src/ndutils/Makefile.am, src/NDview/Makefile.am:
+	Remove -rpath, not needed and not wanted by Debian.
+
+2006-07-30  Claus-Justus Heine  <Claus.Heine@Mathematik.Uni-Freiburg.DE>
+
+	* src/ndutils/ColorPoint.c:
+	Off-by-1 bug: in C (in contrast to maybe Fortran ...) the last array
+	index is (size-1). Ups.
+
+	* src/ndutils/GeExDir.c: Debugging message.
+
+	* src/ndutils/slicer.c, src/ndutils/snapshot.c:
+	Consume the fourth number of the ND-axes command.
+
+	* src/ndutils/clipoogl.c, src/ndutils/slicer.c, src/ndutils/wrappers.c:
+	Remove some compiler warnings.
+
+	* src/NDview/Makefile.am, src/ndutils/Makefile.am:
+	Some fixes after running "make distchek".
+
+	* src/ndutils/Slicer: Bail out if we are not in ND with N > 3.
+
+	* src/ndutils/.cvsignore: Initial revision.
+
+	* src/NDview/Makefile.am: Moved all data-files to top-level directory.
+
+	* src/ndutils/init.h, src/ndutils/slicer.c, src/ndutils/slicer.h, src/ndutils/snapshot.c, src/ndutils/snapshot.h, src/ndutils/testwish.c, src/ndutils/wrappers.c, src/ndutils/wrappers.h, src/ndutils/3D-Snapshot, src/ndutils/BasicFns.c, src/ndutils/BasicFns.h, src/ndutils/Clip.h, src/ndutils/ColorMapDefs.h, src/ndutils/ColorPoint.c, src/ndutils/ColorPoint.h, src/ndutils/Colormap, src/ndutils/GeExDir.c, src/ndutils/GeExDir.h, src/ndutils/GeomExtentDirection.c, src/ndutils/GeomExtentDirection.h, src/ndutils/GeomtoNoff.c, src/ndutils/GeomtoNoff.h, src/ndutils/LoadMap.c, src/ndutils/LoadMap.h, src/ndutils/MakeGoodTransforms.c, src/ndutils/MakeGoodTransforms.h, src/ndutils/Makefile.am, src/ndutils/Random.c, src/ndutils/Random.h, src/ndutils/Slicer, src/ndutils/TransformGeom.c, src/ndutils/TransformGeom.h, src/ndutils/WithColor.c, src/ndutils/WithColor.h, src/ndutils/clip.c, src/ndutils/clipoogl.c, src/ndutils/init.c:
+	Resurrected from older Geomview releases.
+
+2006-07-29  Claus-Justus Heine  <Claus.Heine@Mathematik.Uni-Freiburg.DE>
+
+	* src/NDview/ndview.c:
+	We have no fscanf() for IOBFILE files. Work around that.
+
+	* src/NDview/Makefile.am, src/NDview/NDdemo, src/NDview/NDview:
+	Enable in-build-tree use of NDview and NDdemo.
+
+	* src/NDview/Makefile.am: Fiddle with in-builddir module definition.
+
+	* src/NDview/Makefile.am: Do not copy data to toplevel build-directory.
+
+	* src/NDview/.cvsignore: Ignore Makefile, Makefile.in
+
+2006-07-28  Claus-Justus Heine  <Claus.Heine@Mathematik.Uni-Freiburg.DE>
+
+	* src/NDview/ndview.c: Remove a debugging message.
+
+	* src/NDview/Makefile.am: Fiddle with vpath data installation.
+
+	* src/NDview/NDdemo, src/NDview/NDview, src/NDview/ndview.c, src/NDview/testwish.c, src/NDview/.cvsignore, src/NDview/Makefile.am:
+	Forthcoming NDview module, but needs more work.
+
+2006-07-27  Claus-Justus Heine  <Claus.Heine@Mathematik.Uni-Freiburg.DE>
+
+	* m4/check-package.m4, m4/frameworks.m4, m4/set-prefix.m4:
+	Initial revision.
+
+2006-07-15  Claus-Justus Heine  <Claus.Heine@Mathematik.Uni-Freiburg.DE>
+
+	* m4/geom_local.m4: configure.in -> configure.ac
+
+2006-07-14  Claus-Justus Heine  <Claus.Heine@Mathematik.Uni-Freiburg.DE>
+
+	* m4/.cvsignore: * use one shared library (i.e. libgeomview.so)
+	* do not use undocumented stdio internals
+	* src/lib/aclib/fmemopen.c -- fmemopen replacement
+	* src/lib/oogl/utilt/iobuffer.[ch] -- totally buffered input, with seekback (pipes)
+	* a bunch of autoconf changes
+	* OpenGL is optional again
+	* reenable hinge module
+	* reenable flythrough module
+	* reenable cplxview module
+
+2006-06-24  Claus-Justus Heine  <Claus.Heine@Mathematik.Uni-Freiburg.DE>
+
+	* m4/geom_local.m4, m4/lf_local.m4: Fix "underquoted" AC_DEFUN's
+
+2004-02-22  Steve M. Robbins  <steve@nyongwa.montreal.qc.ca>
+
+	* m4/lf_local.m4: *** empty log message ***
+
+	* m4/Makefile.am: 	* m4/Makefile.am: Remove.
+		* Makefile.am (m4_files): Distribute the m4/*.m4 files.
+
+		* configure.in: Take care to avoid using MS Windows "find"
+		command.  Do not create m4/Makefile.
+
+2001-03-22  Steve M. Robbins  <steve@nyongwa.montreal.qc.ca>
+
+	* m4/geom_local.m4: Make GEOM_FIND_I_OPTION respect $CPPFLAGS.
+
+	Do not set XmNwidth and XmNheight if zero.  This appears to cure the
+	"invisible ToggleButtonWidget" problem seen on linux w/ _some_
+	versions of lesstif.  Confirmation from a motif maven that this is the
+	correct approach is desperately solicited!
+
+	Other tidying up getting ready for a release.
+
+2001-02-11  Mark Phillips  <mbp@geomtech.com>
+
+	* m4/geom_local.m4: *** empty log message ***
+
+2001-02-10  Mark Phillips  <mbp@geomtech.com>
+
+	* m4/.cvsignore: *** empty log message ***
+
+2000-11-17  Mark Phillips  <mbp@geomtech.com>
+
+	* m4/geom_local.m4: *** empty log message ***
+
+2000-11-15  Mark Phillips  <mbp@geomtech.com>
+
+	* m4/geom_local.m4: *** empty log message ***
+
+2000-10-20  Mark Phillips  <mbp@geomtech.com>
+
+	* m4/geom_local.m4: *** empty log message ***
+
+2000-10-14  Mark Phillips  <mbp@geomtech.com>
+
+	* m4/geom_local.m4: *** empty log message ***
+
+2000-08-17  Mark Phillips  <mbp@geomtech.com>
+
+	* m4/geom_local.m4: *** empty log message ***
+
+2000-08-15  Mark Phillips  <mbp@geomtech.com>
+
+	* m4/Makefile.am, m4/geom_local.m4, m4/lf_local.m4:
+
+	* m4/Makefile.am, m4/geom_local.m4, m4/lf_local.m4: New file.
+
