@@ -1,3 +1,4 @@
+INSTALL
 Makefile
 Makefile.in
 aclocal.m4
@@ -13,5 +14,7 @@ depcomp
 gvemodules-tcltk-0.1.tar.bz2
 gvemodules-tcltk-0.1.tar.gz
 install-sh
+libtool
+ltmain.sh
 missing
 stamp-h1
