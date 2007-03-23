@@ -1,4 +1,4 @@
-README for the XForms based example emodule for Geomview
+README for the cplxview emodule for Geomview, a complex function viewer
 
 Contents
 --------
@@ -11,20 +11,21 @@ Contents
 
 Description
 -----------
-This is the `example' emodule defined in the Geomview
-manual.`emodules' are kind of plugins which extend the functionality
-of Geomview (an interactive 3d viewing program). Geomview is available
-separately from Sourceforge. Please see www.geomview.org for more
-information.
 
-The example emodule demonstrates how to write an XForms-based
-extension module for Geomview. The source code is contained in
+This is the `cplxview' emodule, a Geomview plugin for the
+visualisation of complex functions. `emodules' are kind of plugins
+which extend the functionality of Geomview (an interactive 3d viewing
+program). Geomview is available separately from Sourceforge. Please
+see www.geomview.org for more information.
+
+The cplxview emodule is an XForms-based extension module for
+Geomview. The source code is contained in
 
 ./src/
 
 Required Packages
 -----------------
-You need the XForms library to compile the example emodule. XForms is
+You need the XForms library to compile the cplxview emodule. XForms is
 available from
 
 http://www.nongnu.org/xforms/
@@ -60,7 +61,7 @@ specified).
 
 Local Installation
 ~~~~~~~~~~~~~~~~~~
-To install the example emodule locally, run configure with the
+To install the cplxview emodule locally, run configure with the
 `--enable-local-emodule' switch:
 
 ./configure --prefix=PREFIX --enable-local-emodule && make install
@@ -68,7 +69,7 @@ To install the example emodule locally, run configure with the
 This still will install the binary under `PREFIX/libexec/geomview/',
 but writes the emodule definition into the file
 
-~/.geomview-example
+~/.geomview-cplxview
 
 were Geomview will find it. So, for a local installation you would --
 perhaps -- do the following:
@@ -77,16 +78,16 @@ perhaps -- do the following:
 
 This would produce the two files
 
-${HOME}/software/libexec/geomview/example
-${HOME}/.geomview-example
+${HOME}/software/libexec/geomview/cplxview
+${HOME}/.geomview-cplxview
 
-`.geomview-example' will contain the full path to the `example' binary
-in this case so that nothing more should be needed to call the example
+`.geomview-cplxview' will contain the full path to the `cplxview' binary
+in this case so that nothing more should be needed to call the cplxview
 emodule from within Geomview.
 
 Global Installation
 ~~~~~~~~~~~~~~~~~~~
-Just configure Geomview and gvemod-example with the same `--prefix'
+Just configure Geomview and gvemod-cplxview with the same `--prefix'
 option; e.g. `--prefix=/usr'. This should work.
 
 If you run configure with the switch `--enable-geomview-query' then
@@ -105,8 +106,8 @@ below `${HOME}/Geomview' (by configuring the Geomview package with
 This would result in auto-detection of the XForms library and produce
 the two files
 
-${HOME}/Geomview/libexec/geomview/example
-${HOME}/Geomview/libexec/geomview/.geomview-example
+${HOME}/Geomview/libexec/geomview/cplxview
+${HOME}/Geomview/libexec/geomview/.geomview-cplxview
 
 and again, this should result in a working configuration.
 

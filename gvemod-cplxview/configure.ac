@@ -1,6 +1,6 @@
-AC_INIT(gvemod-example, [0.1], Claus-Justus Heine <Claus.Heine@Mathematik.Uni-Freiburg.DE>)
+AC_INIT(gvemod-cplxview, [0.1], Claus-Justus Heine <Claus.Heine@Mathematik.Uni-Freiburg.DE>)
 
-AC_CONFIG_SRCDIR([src/main.c])
+AC_CONFIG_SRCDIR([src/cplxview.c])
 
 GV_INIT_GEOMVIEW(=,1,>=,9)
 
@@ -22,4 +22,4 @@ GEOMVIEW_CHECK_PACKAGE(xforms, forms, ${x_libraries}, ${XLIBS} ${XPM_LIB} -lm, f
 
 GEOMVIEW_RESULT
 
-AC_OUTPUT(Makefile src/Makefile)
+AC_OUTPUT(Makefile src/Makefile data/Makefile)
