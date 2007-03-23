@@ -30,8 +30,6 @@ fi
 
 AC_OUTPUT(Makefile
           src/Makefile
-          src/cplxview/Makefile
-          src/example/Makefile
           src/flythrough/Makefile
           src/ginsu/Makefile
           src/graffiti/Makefile
