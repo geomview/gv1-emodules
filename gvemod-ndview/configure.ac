@@ -44,6 +44,7 @@ AM_CONDITIONAL([TCLFILEHANDLER], [test "z${TCLFILEHANDLER}" = "zyes"])
 ################################################################################
 
 AC_OUTPUT(Makefile
+          data/Makefile
           src/Makefile
           src/NDview/Makefile
           src/ndutils/Makefile)
