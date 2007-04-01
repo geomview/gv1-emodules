@@ -1,7 +1,7 @@
-AC_INIT(gvemodules-tcltk,
+AC_INIT(gvemod-labeler,
         [0.1], Claus-Justus Heine <Claus.Heine@Mathematik.Uni-Freiburg.DE>)
 
-AC_CONFIG_SRCDIR([src/crayola/tkcrayola.c])
+AC_CONFIG_SRCDIR([src/labeler.c])
 
 GV_INIT_GEOMVIEW(=,1,>=,9)
 
@@ -42,7 +42,4 @@ AM_CONDITIONAL([TCLFILEHANDLER], [test "z${TCLFILEHANDLER}" = "zyes"])
 
 ################################################################################
 
-AC_OUTPUT(Makefile
-          src/Makefile
-          src/crayola/Makefile
-          src/labeler/Makefile)
+AC_OUTPUT(Makefile src/Makefile)
