@@ -29,7 +29,7 @@ running the emodules from within Geomview.
 
 Required Packages
 -----------------
-You need the Tcl and Tk libraries to comile the modules.  Tcl and Tk
+You need the Tcl and Tk libraries to compile the modules.  Tcl and Tk
 are available from
 
 http://www.tcl.tk/software/
