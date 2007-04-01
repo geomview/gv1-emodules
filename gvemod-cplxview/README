@@ -1,4 +1,4 @@
-README for the cplxview emodule for Geomview, a complex function viewer
+README for the Cplxview emodule for Geomview, a complex function viewer
 
 Contents
 --------
@@ -10,16 +10,17 @@ Contents
 ================================================================================
 
 Description
------------
-
-This is the `cplxview' emodule, a Geomview plugin for the
+----------- 
+This is the `Cplxview' emodule, a Geomview plugin for the
 visualisation of complex functions. `emodules' are kind of plugins
 which extend the functionality of Geomview (an interactive 3d viewing
 program). Geomview is available separately from Sourceforge. Please
-see www.geomview.org for more information.
+see
 
-The cplxview emodule is an XForms-based extension module for
-Geomview. The source code is contained in
+http://www.geomview.org
+
+for more information. The Cplxview emodule is an XForms-based
+extension module for Geomview. The source code is contained in
 
 ./src/
 
