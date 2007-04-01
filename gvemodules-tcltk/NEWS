@@ -1,9 +1,0 @@
-0.1 March, 2007
-
-  The xforms and Tcl/Tk emodules have been moved to separate packages.
-  This package contains the Tcl/Tk based emodules (other than
-  NDview/ndutils which are contained in the package gvemod-ndview) of
-  the original Geomview distribution.
-
-  cH <Claus.Heine@Mathematik.Uni-Freiburg.DE>
-
