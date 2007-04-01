@@ -1,0 +1,8 @@
+0.1 April, 2007
+
+  The xforms and Tcl/Tk emodules have been moved to separate packages.
+  This package contains the Tcl/Tk based `Crayola' emodule, an
+  interactive colouring tool.
+
+  cH <Claus.Heine@Mathematik.Uni-Freiburg.DE>
+
