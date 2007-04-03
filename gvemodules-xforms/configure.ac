@@ -31,6 +31,7 @@ fi
 AC_OUTPUT(Makefile
           src/Makefile
           src/flythrough/Makefile
+          src/flythrough/data/Makefile
           src/ginsu/Makefile
           src/graffiti/Makefile
           src/hinge/Makefile
