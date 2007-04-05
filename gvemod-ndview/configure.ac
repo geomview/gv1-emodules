@@ -30,7 +30,9 @@ fi
 AM_CONDITIONAL(HAVE_TCLTK, [test -n "${TCL_LIB}" -a -n "${TK_LIB}"])
 
 # Cygwin does not seem to have the Tcl_CreateFileHandler() function,
-# so test for it.
+# so test for it; if it is not available the functionality must be
+# replaced by polling using timer events.
+#
 if test -n "${TCL_LIB}" -a -n "${TK_LIB}"; then
     ac_save_LIBS="${LIBS}"
     LIBS="${TCL_ALL_LIB} ${LIBS}"
@@ -39,7 +41,6 @@ if test -n "${TCL_LIB}" -a -n "${TK_LIB}"; then
 	[TCLFILEHANDLER=no])
     LIBS="${ac_save_LIBS}"
 fi
-AM_CONDITIONAL([TCLFILEHANDLER], [test "z${TCLFILEHANDLER}" = "zyes"])
 
 ################################################################################
 
