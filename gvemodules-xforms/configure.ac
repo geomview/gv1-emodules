@@ -28,6 +28,8 @@ fi
 
 ########################################################################
 
+GEOMVIEW_RESULT
+
 AC_OUTPUT(Makefile
           src/Makefile
           src/flythrough/Makefile

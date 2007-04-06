@@ -44,6 +44,8 @@ fi
 
 ################################################################################
 
+GEOMVIEW_RESULT
+
 AC_OUTPUT(Makefile
           data/Makefile
           src/Makefile
