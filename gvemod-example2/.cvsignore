@@ -12,7 +12,7 @@ config.status
 config.sub
 configure
 depcomp
-gvemod-example*
+gvemod-xforms-example*
 install-sh
 libtool
 ltmain.sh
