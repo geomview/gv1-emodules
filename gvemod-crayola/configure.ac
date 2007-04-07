@@ -22,7 +22,10 @@ AC_CACHE_VAL(ac_cv_XLIBS,[ac_cv_XLIBS="XLIBS='$XLIBS'"])
 
 GEOMVIEW_CHECK_PACKAGE(tcl, tcl, ${x_libraries}, ${XLIBS}, tcl.h, , ,required)
 if test -n "${TCL_LIB}"; then
-  GEOMVIEW_CHECK_PACKAGE(tk, tk, ${x_libraries}, ${XLIBS}, tk.h, ${X_CFLAGS}, ,required)
+  gv_ac_save_CPPFLAGS="${CPPFLAGS}"
+  CPPFLAGS="${CPPFLAGS} -I${TCL_INCLUDE_PATH} ${X_CFLAGS}"
+  GEOMVIEW_CHECK_PACKAGE(tk, tk, ${x_libraries}, ${XLIBS}, tk.h,, ,required)
+  CPPFLAGS="${gv_ac_save_CPPFLAGS}"
 else
   AM_CONDITIONAL(HAVE_TK, [false])
 fi
