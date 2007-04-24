@@ -6,6 +6,7 @@ Contents
   Required Packages
   Installation
   History
+  Platform Specific Notes
 
 ================================================================================
 
@@ -143,3 +144,106 @@ Dieter, Celeste Fowler, Claus-Justus Heine, Todd Kaplan, Daniel Krech,
 Mario Lopez, Daeron Meyer, Mark Meuer, Steve Robbins, Timothy Rowley,
 Nathaniel Thurston, Scott Wisdom, Lloyd Wood and others.
 
+Platform Specific Notes
+-----------------------
+
+*** Tcl/Tk:
+On some platforms the Tcl/Tk libraries are installed with the
+version attached to the library name. In fact, this is the (broken)
+default installation policy of Tcl/Tk. So to be precise: some vendors
+do not additionally provide revision independent names. The configure
+script per default searches for libtcl.SUF and libtk.SUF (SUF meaning
+the appropriate suffix for libraries, e.g. `a' or `so' or `dll' or
+whatever). It may be necessary to run the configure script with the
+following switches on those platform:
+
+./configure OTHERSWITCHES --with-tcl-name=tcl8.4 --with-tk-name=tk8.4
+
+(provided have have installed Tcl/Tk version 8.4 on your system. Gnah.)
+
+*** Cygwin:
+
+The Tcl/Tk is quite broken on Cygwin.  Therefore it is not possible to
+communicate via the Tcl builtins `puts' and `gets' with Geomview, you
+will get a `broken pipe' error, and this renders most of the Tcl/Tk
+emodules as unusable on Cygwin. The problem is that Tcl/Tk on Cygwin
+is not compiled as a Unix application, but as a -- more or less --
+native Windoze application. It is currently not possible to compile
+Tcl/Tk (version 8.4) on Cygwin as Unix application library without
+patches. However, you can apply the patches supplied right at the end
+of this file to Tcl-8.4.14 and Tk-8.4.14 and then compile and install
+it on Cygwin using the Tcl/Tk build instructions for Unix. This means:
+Save the Tcl patch attached at the end of this document under the name
+`tcl8.4.14-cygwin.diff', then:
+
+cd tcl8.4.14
+patch -p1 < PATH_TO_THE_PATCH_FILE/tcl8.4.14-cygwin.diff
+cd unix
+./configure
+make
+make install
+
+Then do the analog for Tk. If you cannot make any sense of the
+instructions given above, then bother the Tcl/Tk and/or Cygwin
+maintainers, not me. Or use an operating system.
+
+Otherwise you will have working Tcl/Tk libraries installed under
+`/usr/local/lib/', with headers installed below
+`/usr/local/include'. You then have to run the configure script with
+the following switches:
+
+./configure OTHERSWITCHES --with-tcl-name=tcl8.4 --with-tk-name=tk8.4  \
+  --with-tcl-lib=/usr/local/lib --with-tk-lib=/usr/local/lib
+
+########################### tcl8.4.14-cygwin.diff ##############################
+diff -u --recursive --new-file tcl8.4.14/generic/tclClock.c tcl8.4.14-cygwin/generic/tclClock.c
+--- tcl8.4.14/generic/tclClock.c	2005-03-15 17:29:53.000000000 +0100
++++ tcl8.4.14-cygwin/generic/tclClock.c	2007-04-24 12:03:52.615433029 +0200
+@@ -291,7 +291,7 @@
+ 	return TCL_OK;
+     }
+ 
+-#if !defined(HAVE_TM_ZONE) && !defined(WIN32)
++#if !defined(HAVE_TM_ZONE) && !defined(WIN32) && defined(HAVE_TIMEZONE_VAR)
+     /*
+      * This is a kludge for systems not having the timezone string in
+      * struct tm.  No matter what was specified, they use the local
+@@ -349,7 +349,7 @@
+ #endif
+     Tcl_DStringFree(&uniBuffer);
+ 
+-#if !defined(HAVE_TM_ZONE) && !defined(WIN32)
++#if !defined(HAVE_TM_ZONE) && !defined(WIN32) && defined(HAVE_TIMEZONE_VAR)
+     if (useGMT) {
+         if (savedTZEnv != NULL) {
+             Tcl_SetVar2(interp, "env", "TZ", savedTZEnv, TCL_GLOBAL_ONLY);
+diff -u --recursive --new-file tcl8.4.14/unix/installManPage tcl8.4.14-cygwin/unix/installManPage
+--- tcl8.4.14/unix/installManPage	2006-10-19 19:26:15.000000000 +0200
++++ tcl8.4.14-cygwin/unix/installManPage	2007-04-24 12:04:59.013539528 +0200
+@@ -57,9 +57,9 @@
+ 	FIRST=$f
+ 	rm -f $DIR/$FIRST $DIR/$FIRST.*
+ 	sed -e "/man\.macros/r $SRCDIR/man.macros" -e "/man\.macros/d" \
+-	    $MANPAGE > $DIR/$FIRST
+-	chmod 444 $DIR/$FIRST
+-	$ZIP $DIR/$FIRST
++	    $MANPAGE > $DIR/$FIRST || true
++	chmod 444 $DIR/$FIRST || true
++	$ZIP $DIR/$FIRST || true
+     else
+ 	rm -f $DIR/$f $DIR/$f.*
+ 	ln $S$FIRST$Z $DIR/$f$Z
+########################### tk8.4.14-cygwin.diff ###############################
+diff -u --recursive --new-file tk8.4.14/generic/default.h tk8.4.14-cygwin/generic/default.h
+--- tk8.4.14/generic/default.h	2002-08-31 08:12:19.000000000 +0200
++++ tk8.4.14-cygwin/generic/default.h	2007-04-17 01:17:48.000000000 +0200
+@@ -16,8 +16,7 @@
+ #ifndef _DEFAULT
+ #define _DEFAULT
+ 
+-#if defined(__WIN32__) || defined(_WIN32) || \
+-    defined(__CYGWIN__) || defined(__MINGW32__)
++#if defined(__WIN32__) || defined(_WIN32) || defined(__MINGW32__)
+ #   include "tkWinDefault.h"
+ #else
+ #   if defined(MAC_OSX_TK)

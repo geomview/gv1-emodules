@@ -6,6 +6,7 @@ Contents
   Required Packages
   Installation
   History
+  Platform Specific Notes
 
 ================================================================================
 
@@ -43,7 +44,6 @@ Installation
   Local Installation
   Global Installation
   Special Switches
-  Platform Specific Notes
 
 Quick
 ~~~~~
@@ -121,8 +121,22 @@ The configure script features some command line switches to fine-tune
 the locations where it searches for needed packages (i.e. Geomview,
 Tcl, Tk, ...). Please use `configure --help' to get help about these.
 
+HISTORY
+-------
+The Geomview project began in the summer of 1988 at the University of
+Minnesota's Geometry Center with the work of Pat Hanrahan on a viewing
+program called MinneView.  Shortly thereafter Charlie Gunn begin
+developing OOGL in conjunction with MinneView.  In 1991 a team of
+programmers headed by Mark Phillips, Stuart Levy, and Tamara Munzner
+set about developing a revised version of OOGL and a new viewer which
+they named Geomview.  In the time since then, many people have
+contributed, including (in alphabetical order): Steve Anderson, Rex
+Dieter, Celeste Fowler, Claus-Justus Heine, Todd Kaplan, Daniel Krech,
+Mario Lopez, Daeron Meyer, Mark Meuer, Steve Robbins, Timothy Rowley,
+Nathaniel Thurston, Scott Wisdom, Lloyd Wood and others.
+
 Platform Specific Notes
-~~~~~~~~~~~~~~~~~~~~~~~
+-----------------------
 
 *** Tcl/Tk:
 On some platforms the Tcl/Tk libraries are installed with the
@@ -172,28 +186,10 @@ the following switches:
 ./configure OTHERSWITCHES --with-tcl-name=tcl8.4 --with-tk-name=tk8.4  \
   --with-tcl-lib=/usr/local/lib --with-tk-lib=/usr/local/lib
 
-
-HISTORY
--------
-The Geomview project began in the summer of 1988 at the University of
-Minnesota's Geometry Center with the work of Pat Hanrahan on a viewing
-program called MinneView.  Shortly thereafter Charlie Gunn begin
-developing OOGL in conjunction with MinneView.  In 1991 a team of
-programmers headed by Mark Phillips, Stuart Levy, and Tamara Munzner
-set about developing a revised version of OOGL and a new viewer which
-they named Geomview.  In the time since then, many people have
-contributed, including (in alphabetical order): Steve Anderson, Rex
-Dieter, Celeste Fowler, Claus-Justus Heine, Todd Kaplan, Daniel Krech,
-Mario Lopez, Daeron Meyer, Mark Meuer, Steve Robbins, Timothy Rowley,
-Nathaniel Thurston, Scott Wisdom, Lloyd Wood and others.
-
-
-Cygwin Tcl/Tk Patches
----------------------
-############################# Cygwin Tcl patch #################################
+########################### tcl8.4.14-cygwin.diff ##############################
 diff -u --recursive --new-file tcl8.4.14/generic/tclClock.c tcl8.4.14-cygwin/generic/tclClock.c
 --- tcl8.4.14/generic/tclClock.c	2005-03-15 17:29:53.000000000 +0100
-+++ tcl8.4.14-cygwin/generic/tclClock.c	2007-04-17 01:14:08.000000000 +0200
++++ tcl8.4.14-cygwin/generic/tclClock.c	2007-04-24 12:03:52.615433029 +0200
 @@ -291,7 +291,7 @@
  	return TCL_OK;
      }
@@ -212,7 +208,23 @@ diff -u --recursive --new-file tcl8.4.14/generic/tclClock.c tcl8.4.14-cygwin/gen
      if (useGMT) {
          if (savedTZEnv != NULL) {
              Tcl_SetVar2(interp, "env", "TZ", savedTZEnv, TCL_GLOBAL_ONLY);
-############################# Cygwin Tk patch ##################################
+diff -u --recursive --new-file tcl8.4.14/unix/installManPage tcl8.4.14-cygwin/unix/installManPage
+--- tcl8.4.14/unix/installManPage	2006-10-19 19:26:15.000000000 +0200
++++ tcl8.4.14-cygwin/unix/installManPage	2007-04-24 12:04:59.013539528 +0200
+@@ -57,9 +57,9 @@
+ 	FIRST=$f
+ 	rm -f $DIR/$FIRST $DIR/$FIRST.*
+ 	sed -e "/man\.macros/r $SRCDIR/man.macros" -e "/man\.macros/d" \
+-	    $MANPAGE > $DIR/$FIRST
+-	chmod 444 $DIR/$FIRST
+-	$ZIP $DIR/$FIRST
++	    $MANPAGE > $DIR/$FIRST || true
++	chmod 444 $DIR/$FIRST || true
++	$ZIP $DIR/$FIRST || true
+     else
+ 	rm -f $DIR/$f $DIR/$f.*
+ 	ln $S$FIRST$Z $DIR/$f$Z
+########################### tk8.4.14-cygwin.diff ###############################
 diff -u --recursive --new-file tk8.4.14/generic/default.h tk8.4.14-cygwin/generic/default.h
 --- tk8.4.14/generic/default.h	2002-08-31 08:12:19.000000000 +0200
 +++ tk8.4.14-cygwin/generic/default.h	2007-04-17 01:17:48.000000000 +0200
