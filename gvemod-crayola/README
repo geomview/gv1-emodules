@@ -152,13 +152,26 @@ following switches on those platform:
 
 (provided have have installed Tcl/Tk version 8.4 on your system. Gnah.)
 
+*** FreeBSD:
+
+Here we have libtcl84 and libtk84, i.e. without a dot between the
+major and minor version. Additionally, `/usr/local/lib/' does not seem
+to be in the standard search-path for libraries. The following
+switches are needed:
+
+./configure OTHERSWITCHES \
+ --with-tcl-name=tcl84 --with-tcl-lib=/usr/local/lib \
+ --with-tcl-headers=/usr/local/include/tcl8.4 \
+ --with-tk-name=tk84 --with-tk-lib=/usr/local/lib \
+ --with-tk-headers=/usr/local/include/tk8.4
+
 *** Cygwin:
 
 The Tcl/Tk is quite broken on Cygwin.  Therefore it is not possible to
 communicate via the Tcl builtins `puts' and `gets' with Geomview, you
 will get a `broken pipe' error, and this renders most of the Tcl/Tk
 emodules as unusable on Cygwin. The problem is that Tcl/Tk on Cygwin
-is not compiled as a Unix application, but as a -- more or less --
+is not compiled as an Unix application, but as a -- more or less --
 native Windoze application. It is currently not possible to compile
 Tcl/Tk (version 8.4) on Cygwin as Unix application library without
 patches. However, you can apply the patches supplied right at the end
@@ -174,14 +187,10 @@ cd unix
 make
 make install
 
-Then do the analog for Tk. If you cannot make any sense of the
-instructions given above, then bother the Tcl/Tk and/or Cygwin
-maintainers, not me. Or use an operating system.
-
-Otherwise you will have working Tcl/Tk libraries installed under
-`/usr/local/lib/', with headers installed below
-`/usr/local/include'. You then have to run the configure script with
-the following switches:
+Afterwards do the analogue for Tk. If all goes well then you will have
+working Tcl/Tk libraries installed under `/usr/local/lib/', with
+headers installed below `/usr/local/include'. You then have to run the
+configure script with the following switches:
 
 ./configure OTHERSWITCHES --with-tcl-name=tcl8.4 --with-tk-name=tk8.4  \
   --with-tcl-lib=/usr/local/lib --with-tk-lib=/usr/local/lib
