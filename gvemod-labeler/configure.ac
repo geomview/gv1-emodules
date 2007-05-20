@@ -1,5 +1,5 @@
 AC_INIT(gvemod-labeler,
-        [0.1], Claus-Justus Heine <Claus.Heine@Mathematik.Uni-Freiburg.DE>)
+        [0.2], Claus-Justus Heine <Claus.Heine@Mathematik.Uni-Freiburg.DE>)
 
 AC_CONFIG_SRCDIR([src/labeler.c])
 

@@ -1,3 +1,7 @@
+0.2 May, 2007
+  Colouring of Nd-objects should work now, basically (not for
+  Nd-meshes, those would need a complete rework).
+
 0.1 April, 2007
 
   The xforms and Tcl/Tk emodules have been moved to separate packages.
