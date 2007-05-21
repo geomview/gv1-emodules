@@ -11,9 +11,7 @@ config.status
 config.sub
 configure
 depcomp
-gvemod-cplxview-0.1
-gvemod-cplxview-0.1.tar.bz2
-gvemod-cplxview-0.1.tar.gz
+gvemod-cplxview*
 install-sh
 libtool
 ltmain.sh
