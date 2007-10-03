@@ -1,4 +1,4 @@
-AC_INIT(gvemodules-xforms, [0.2], Claus-Justus Heine <Claus.Heine@Mathematik.Uni-Freiburg.DE>)
+AC_INIT(gvemodules-xforms, [0.3], Claus-Justus Heine <Claus.Heine@Mathematik.Uni-Freiburg.DE>)
 
 AC_CONFIG_SRCDIR([src/transformer/transformer.main.c])
 

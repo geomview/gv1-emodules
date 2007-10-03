@@ -1,3 +1,6 @@
+0.3 October, 2007
+  Update for the most recent lisp related changes. Stereo module fix.
+
 0.2 March, 2007
   Update for the most recent Pick-interface changes. Doesn't change
   anything here, but -- e.g. -- Crayola benefits from it.
