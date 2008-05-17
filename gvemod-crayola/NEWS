@@ -1,3 +1,6 @@
+0.3 May, 2008
+  Adjust some configure checks, nothing special concerning _this_ module.
+
 0.2 May, 2007
   Colouring of Nd-objects should work now, basically (not for
   Nd-meshes, those would need a complete rework).

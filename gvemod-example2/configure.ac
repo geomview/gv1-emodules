@@ -1,4 +1,4 @@
-AC_INIT(gvemod-xforms-example, [0.2], Claus-Justus Heine <Claus.Heine@Mathematik.Uni-Freiburg.DE>)
+AC_INIT(gvemod-xforms-example, [0.3], Claus-Justus Heine <Claus.Heine@Mathematik.Uni-Freiburg.DE>)
 
 AC_CONFIG_SRCDIR([src/main.c])
 

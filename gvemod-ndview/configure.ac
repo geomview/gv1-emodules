@@ -1,5 +1,5 @@
 AC_INIT(gvemod-ndview,
-        [0.2], Claus-Justus Heine <Claus.Heine@Mathematik.Uni-Freiburg.DE>)
+        [0.3], Claus-Justus Heine <Claus.Heine@Mathematik.Uni-Freiburg.DE>)
 
 AC_CONFIG_SRCDIR([src/NDview/ndview.c])
 
